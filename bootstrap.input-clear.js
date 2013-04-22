@@ -15,7 +15,7 @@ The above copyright notice and this permission notice shall be included in
 all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+IMPLIED, INCLUDING BUT NOT LIMITED TOs THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
@@ -27,7 +27,7 @@ THE SOFTWARE.
     "use strict";
     function enableInputClearOption() {
 	// add private event handler to avoid conflict
-        $("input[type=text]").not(".no-clear").unbind("clear-focus").bind("clear-focus", (function () {
+        $(".answerHover").not(".no-clear").unbind("clear-focus").bind("clear-focus", (function () {
             if ($(this).data("clear-button")) return;
             var x = $("<a class='clear-text' style='cursor:pointer;color:#888;'><i class='icon-remove'></i></a>");
             $(x).data("text-box", this);
@@ -47,7 +47,7 @@ THE SOFTWARE.
                     var txt = this;
                     e.stopPropagation();
                     e.stopImmediatePropagation();
-                    setTimeout($.proxy(function () { $(this).trigger("focus"); }, txt), 50);
+                    setTimeout($.proxy(function () { $(this).trigger("hover"); }, txt), 50);
                     return false;
 
                 }
@@ -58,7 +58,7 @@ THE SOFTWARE.
             }
         }));
 	// add private event to the focus/unfocus events as branches
-        $("input[type=text]").on("focus", function () {
+        $(".answerHover").on("hover", function () {
             $(this).trigger("clear-focus");
         }).on("blur", function () {
             $(this).trigger("clear-blur");
