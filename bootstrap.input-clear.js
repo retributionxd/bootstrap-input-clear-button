@@ -58,7 +58,7 @@ THE SOFTWARE.
             }
         }));
 	// add private event to the focus/unfocus events as branches
-        $(".answerHover").on("hover", function () {
+        $(".answerHover").on("mouseover", function () {
             $(this).trigger("clear-focus");
         }).on("blur", function () {
             $(this).trigger("clear-blur");
